@@ -12,4 +12,52 @@
           android:layout_height="match_parent"
           android:background="#90000000"/>
 
+    <TextView
+            android:id="@+id/tv_lfr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Looking for a Ride?"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+    />
+    <TextView
+            android:id="@+id/tv_slogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Find a perfect ride towards your destination"
+            android:textColor="@android:color/white"
+            android:layout_below="@id/tv_lfr"
+            android:textSize="14sp"
+    />
+    
+    <Button
+            android:id="@+id/btn_driver"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_slogan"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="25dp"
+            android:background="@color/colorPrimary"
+            android:text="Offer Ride"
+            android:textColor="@android:color/white"
+            android:padding="15dp"
+            android:textSize="20sp"
+    />
+
+    <Button
+            android:id="@+id/btn_user"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_driver"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/design_inputs"
+            android:text="Find Ride"
+            android:textColor="@color/colorPrimaryDark"
+            android:padding="15dp"
+            android:textSize="20sp"
+    />
+
 </RelativeLayout>

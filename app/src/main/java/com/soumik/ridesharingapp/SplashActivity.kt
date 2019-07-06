@@ -9,7 +9,7 @@ import android.view.WindowManager
 
 class SplashActivity : AppCompatActivity() {
 
-    private val SPLASH_TIME_OUT : Long = 1500
+    private val SPLASH_TIME_OUT : Long = 3000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

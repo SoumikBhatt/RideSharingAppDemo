@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "9976128657",
+    "firebase_url": "https://ridesharingapp-a61a6.firebaseio.com",
+    "project_id": "ridesharingapp-a61a6",
+    "storage_bucket": "ridesharingapp-a61a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9976128657:android:1ffa176aa14c7546",
+        "android_client_info": {
+          "package_name": "com.soumik.ridesharingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9976128657-o6ihgklvhiti85naag7e6fc06sd5gefl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.soumik.ridesharingapp",
+            "certificate_hash": "6c8f6fbd1774c06b7e35567549c0e6b1531dd8db"
+          }
+        },
+        {
+          "client_id": "9976128657-06jegu2vl20n03pf91rfur2gkedu7n3h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8u9jWUM0JIBqCeFqAjpEsTeEHN5IsFB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "9976128657-06jegu2vl20n03pf91rfur2gkedu7n3h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
