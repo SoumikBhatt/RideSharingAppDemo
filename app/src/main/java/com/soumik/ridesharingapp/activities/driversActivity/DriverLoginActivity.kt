@@ -80,6 +80,7 @@ class DriverLoginActivity : AppCompatActivity() {
                         if (it.isSuccessful){
                             showToast(applicationContext,"Logged in Successfully")
                             hideProgressDialog(progressDialog)
+                            startActivity(Intent(this,DriverMapActivity::class.java))
                         } else{
                             showToast(applicationContext,"Oops! Logging in Failed, Try again later")
                             hideProgressDialog(progressDialog)
@@ -105,6 +106,7 @@ class DriverLoginActivity : AppCompatActivity() {
                         if (it.isSuccessful){
                             showToast(applicationContext,"Congrats! You are registered as a Rider")
                             hideProgressDialog(progressDialog)
+                            startActivity(Intent(this,DriverMapActivity::class.java))
                         } else{
                             showToast(applicationContext,"Oops! Registration Failed, Try again later")
                             hideProgressDialog(progressDialog)
