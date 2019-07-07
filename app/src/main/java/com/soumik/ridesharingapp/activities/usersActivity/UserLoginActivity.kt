@@ -46,6 +46,35 @@ class UserLoginActivity : AppCompatActivity() {
 
             registerUser(userEmail,userPassword)
         }
+
+        btn_user_login.setOnClickListener {
+            var userEmail = et_user_email.text.toString()
+            var userPassword = et_user_password.text.toString()
+
+            loginDriver(userEmail,userPassword)
+        }
+    }
+
+    private fun loginDriver(userEmail: String, userPassword: String) {
+        when{
+            TextUtils.isEmpty(userEmail) -> showToast(applicationContext,"Email field can't be empty")
+            TextUtils.isEmpty(userPassword) -> showToast(applicationContext,"Password field can't be empty")
+
+            else->{
+                showProgressDialog(progressDialog,"User Logging In","Please wait, while we are matching your credentials")
+
+                mAuth.signInWithEmailAndPassword(userEmail,userPassword)
+                    .addOnCompleteListener {
+                        if (it.isSuccessful){
+                            showToast(applicationContext,"Congrats! You are successfully Logged In")
+                            hideProgressDialog(progressDialog)
+                        } else{
+                            showToast(applicationContext,"Oops! Unsuccessful Log In, Try again later")
+                            hideProgressDialog(progressDialog)
+                        }
+                    }
+            }
+        }
     }
 
     private fun registerUser(userEmail: String, userPassword: String) {

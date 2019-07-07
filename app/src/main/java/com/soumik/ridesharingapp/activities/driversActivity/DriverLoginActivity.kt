@@ -56,9 +56,41 @@ class DriverLoginActivity : AppCompatActivity() {
 
             registerDriver(driverEmail,driverPassword)
         }
+
+        btn_driver_login.setOnClickListener {
+            var driverEmail = et_driver_email.text.toString()
+            var driverPassword = et_driver_password.text.toString()
+
+            loginDriver(driverEmail,driverPassword)
+        }
     }
 
-    fun registerDriver(driverEmail:String,driverPassword:String) {
+    private fun loginDriver(driverEmail: String, driverPassword: String) {
+
+        when {
+            TextUtils.isEmpty(driverEmail) -> showToast(applicationContext,"Email field can't be empty")
+            TextUtils.isEmpty(driverPassword) -> showToast(applicationContext,"Password field can't be empty")
+
+            else -> {
+
+                showProgressDialog(progressDialog,"Rider Logging In","Please wait, while we are matching your credentials")
+
+                mAuth.signInWithEmailAndPassword(driverEmail,driverPassword)
+                    .addOnCompleteListener {
+                        if (it.isSuccessful){
+                            showToast(applicationContext,"Logged in Successfully")
+                            hideProgressDialog(progressDialog)
+                        } else{
+                            showToast(applicationContext,"Oops! Logging in Failed, Try again later")
+                            hideProgressDialog(progressDialog)
+                        }
+                    }
+            }
+        }
+
+    }
+
+    private fun registerDriver(driverEmail:String,driverPassword:String) {
 
         when {
             TextUtils.isEmpty(driverEmail) -> showToast(applicationContext,"Email field can't be empty")
