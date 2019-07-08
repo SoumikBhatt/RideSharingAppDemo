@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.firebase.geofire.GeoFire
+import com.firebase.geofire.GeoLocation
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationRequest
@@ -15,6 +17,9 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.soumik.ridesharingapp.R
 
 class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
@@ -53,6 +58,13 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
         var latLng:LatLng = LatLng(p0.latitude,p0.longitude)
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng!!))
         mMap.animateCamera(CameraUpdateFactory.zoomTo(12F))
+
+        var driverID = FirebaseAuth.getInstance().currentUser?.uid
+
+        var availableDriverRef:DatabaseReference = FirebaseDatabase.getInstance().reference.child("Available Drivers")
+
+        var geoFire : GeoFire = GeoFire(availableDriverRef)
+        geoFire.setLocation(driverID, GeoLocation(p0.latitude,p0.longitude))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,5 +108,16 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
             .build()
 
         googleApiClient.connect()
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        var driverID = FirebaseAuth.getInstance().currentUser?.uid
+
+        var availableDriverRef:DatabaseReference = FirebaseDatabase.getInstance().reference.child("Available Drivers")
+
+        var geoFire = GeoFire(availableDriverRef)
+        geoFire.removeLocation(driverID)
     }
 }
