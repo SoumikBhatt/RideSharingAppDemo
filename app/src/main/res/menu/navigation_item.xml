@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/item_home_tab"
+          android:icon="@drawable/ic_tab_home"
+          android:title="Home"></item>
+
+    <item android:id="@+id/item_profile_tab"
+          android:icon="@drawable/ic_tab_profile"
+          android:title="Profile"></item>
+
+    <item android:id="@+id/item_settings_tab"
+          android:icon="@drawable/ic_tab_settings"
+          android:title="Settings"></item>
+
+    <item android:id="@+id/item_home_logout"
+          android:icon="@drawable/ic_tab_logout"
+          android:title="Logout"></item>
+
+</menu>

@@ -1,9 +1,14 @@
 package com.soumik.ridesharingapp.activities.driversActivity
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.Intent
 import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.util.Log
 import com.firebase.geofire.GeoFire
 import com.firebase.geofire.GeoLocation
 import com.google.android.gms.common.ConnectionResult
@@ -18,9 +23,13 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.soumik.ridesharingapp.R
+import com.soumik.ridesharingapp.activities.MainActivity
+import com.soumik.ridesharingapp.appUtils.showToast
+import kotlinx.android.synthetic.main.activity_driver_map.*
 
 class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
                             GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
@@ -31,6 +40,9 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
     private lateinit var googleApiClient: GoogleApiClient
     private lateinit var lastLocation: Location
     private lateinit var locationRequest: LocationRequest
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var currentDriver: FirebaseUser
+    private var driverStatus:Boolean = false
 
     @SuppressLint("MissingPermission")
     override fun onConnected(p0: Bundle?) {
@@ -57,7 +69,7 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
         var latLng:LatLng = LatLng(p0.latitude,p0.longitude)
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng!!))
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(12F))
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(18F))
 
         var driverID = FirebaseAuth.getInstance().currentUser?.uid
 
@@ -70,10 +82,32 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_driver_map)
+
+        mAuth = FirebaseAuth.getInstance()
+
+        currentDriver = mAuth.currentUser!!
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        fbtn_logout.setOnClickListener{
+
+            mAuth.signOut()
+
+            logoutDriver()
+        }
+    }
+
+    private fun logoutDriver() {
+
+        driverStatus = true
+        disconnectDriver()
+
+        startActivity(Intent(this,MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK))
+        finish()
+        showToast(applicationContext,"Successfully Logged Out")
     }
 
     /**
@@ -113,11 +147,21 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
     override fun onStop() {
         super.onStop()
 
-        var driverID = FirebaseAuth.getInstance().currentUser?.uid
+        if (!driverStatus){
+            disconnectDriver()
+        }
+    }
+
+    private fun disconnectDriver() {
+
+        var driverID = currentDriver.uid
+
+        Log.i("111",""+driverID)
 
         var availableDriverRef:DatabaseReference = FirebaseDatabase.getInstance().reference.child("Available Drivers")
 
         var geoFire = GeoFire(availableDriverRef)
         geoFire.removeLocation(driverID)
+        LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient,this)
     }
 }
