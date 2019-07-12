@@ -35,10 +35,13 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
     private lateinit var googleApiClient: GoogleApiClient
     private lateinit var lastLocation: Location
     private lateinit var locationRequest: LocationRequest
+    private lateinit var userReference: DatabaseReference
+    private lateinit var userPickupLocation:LatLng
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var currentUser: FirebaseUser
     private var userStatus:Boolean = false
+    private lateinit var currentUserID:String
 
     @SuppressLint("MissingPermission")
     override fun onConnected(p0: Bundle?) {
@@ -76,6 +79,20 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
         mAuth = FirebaseAuth.getInstance()
 
         currentUser = mAuth.currentUser!!
+
+        currentUserID = currentUser.uid
+
+        userReference = FirebaseDatabase.getInstance().reference.child("Active Users")
+
+        btn_call_a_car.setOnClickListener {
+
+            var geoFire = GeoFire(userReference)
+            geoFire.setLocation(currentUserID, GeoLocation(lastLocation.latitude,lastLocation.longitude))
+
+            userPickupLocation = LatLng(lastLocation.latitude,lastLocation.longitude)
+
+            mMap.addMarker(MarkerOptions().position(userPickupLocation).title("Pick your customer from here"))
+        }
 
         fbtn_logout_user.setOnClickListener {
 
