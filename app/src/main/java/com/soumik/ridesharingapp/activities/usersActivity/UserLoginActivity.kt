@@ -1,6 +1,7 @@
 package com.soumik.ridesharingapp.activities.usersActivity
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -68,6 +69,8 @@ class UserLoginActivity : AppCompatActivity() {
                         if (it.isSuccessful){
                             showToast(applicationContext,"Congrats! You are successfully Logged In")
                             hideProgressDialog(progressDialog)
+                            startActivity(Intent(this,UserMapActivity::class.java))
+                            finish()
                         } else{
                             showToast(applicationContext,"Oops! Unsuccessful Log In, Try again later")
                             hideProgressDialog(progressDialog)
