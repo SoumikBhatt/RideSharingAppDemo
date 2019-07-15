@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.soumik.ridesharingapp.R
 import com.soumik.ridesharingapp.appUtils.hideProgressDialog
 import com.soumik.ridesharingapp.appUtils.showProgressDialog
@@ -17,6 +19,8 @@ class UserLoginActivity : AppCompatActivity() {
 
     lateinit var progressDialog:ProgressDialog
     lateinit var mAuth:FirebaseAuth
+    lateinit var userDatabaseRef : DatabaseReference
+    lateinit var onlineUserID : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,10 +71,10 @@ class UserLoginActivity : AppCompatActivity() {
                 mAuth.signInWithEmailAndPassword(userEmail,userPassword)
                     .addOnCompleteListener {
                         if (it.isSuccessful){
-                            showToast(applicationContext,"Congrats! You are successfully Logged In")
-                            hideProgressDialog(progressDialog)
                             startActivity(Intent(this,UserMapActivity::class.java))
                             finish()
+                            showToast(applicationContext,"Congrats! You are successfully Logged In")
+                            hideProgressDialog(progressDialog)
                         } else{
                             showToast(applicationContext,"Oops! Unsuccessful Log In, Try again later")
                             hideProgressDialog(progressDialog)
@@ -91,6 +95,16 @@ class UserLoginActivity : AppCompatActivity() {
                 mAuth.createUserWithEmailAndPassword(userEmail,userPassword)
                     .addOnCompleteListener {
                         if (it.isSuccessful){
+
+                            onlineUserID = mAuth.currentUser?.uid!!
+
+                            userDatabaseRef = FirebaseDatabase.getInstance().reference.child("Users").child("Customers").child(onlineUserID)
+
+                            userDatabaseRef.setValue(true)
+
+                            startActivity(Intent(this,UserMapActivity::class.java))
+                            finish()
+
                             showToast(applicationContext,"Congrats! You are successfully registered as a user")
                             hideProgressDialog(progressDialog)
                         } else{

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.firebase.geofire.GeoFire
 import com.firebase.geofire.GeoLocation
+import com.firebase.geofire.GeoQueryEventListener
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationRequest
@@ -20,6 +21,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.soumik.ridesharingapp.R
@@ -36,12 +38,15 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
     private lateinit var lastLocation: Location
     private lateinit var locationRequest: LocationRequest
     private lateinit var userReference: DatabaseReference
+    private lateinit var driverLocationReference: DatabaseReference
     private lateinit var userPickupLocation:LatLng
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var currentUser: FirebaseUser
-    private var userStatus:Boolean = false
+    private var driverFound:Boolean = false
+    private var radius:Double = 1.00
     private lateinit var currentUserID:String
+    private lateinit var availableDriverID:String
 
     @SuppressLint("MissingPermission")
     override fun onConnected(p0: Bundle?) {
@@ -83,6 +88,7 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
         currentUserID = currentUser.uid
 
         userReference = FirebaseDatabase.getInstance().reference.child("Active Users")
+        driverLocationReference = FirebaseDatabase.getInstance().reference.child("Available Drivers")
 
         btn_call_a_car.setOnClickListener {
 
@@ -92,6 +98,10 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
             userPickupLocation = LatLng(lastLocation.latitude,lastLocation.longitude)
 
             mMap.addMarker(MarkerOptions().position(userPickupLocation).title("Pick your customer from here"))
+
+            btn_call_a_car.text = "Finding your ride...."
+
+            getNearbyDriver()
         }
 
         fbtn_logout_user.setOnClickListener {
@@ -105,6 +115,45 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+    }
+
+    private fun getNearbyDriver() {
+
+        var geoFire = GeoFire(driverLocationReference)
+        var geoQuery = geoFire.queryAtLocation(GeoLocation(userPickupLocation.latitude,userPickupLocation.longitude),radius)
+        geoQuery.removeAllListeners()
+
+        geoQuery.addGeoQueryEventListener(object : GeoQueryEventListener{
+            override fun onGeoQueryReady() {
+
+                if (!driverFound){
+
+                    radius++
+                    getNearbyDriver()
+                }
+            }
+
+            override fun onKeyEntered(key: String?, location: GeoLocation?) {
+
+                if (!driverFound){
+
+                    driverFound=true
+                    availableDriverID = key!!
+                }
+            }
+
+            override fun onKeyMoved(key: String?, location: GeoLocation?) {
+
+            }
+
+            override fun onKeyExited(key: String?) {
+
+            }
+
+            override fun onGeoQueryError(error: DatabaseError?) {
+
+            }
+        })
     }
 
     private fun logoutUser() {

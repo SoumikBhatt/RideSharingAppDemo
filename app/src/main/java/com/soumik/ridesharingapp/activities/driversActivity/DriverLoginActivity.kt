@@ -8,6 +8,8 @@ import android.text.TextUtils
 import android.view.View
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.soumik.ridesharingapp.activities.usersActivity.UserLoginActivity
 import com.soumik.ridesharingapp.appUtils.hideProgressDialog
 import com.soumik.ridesharingapp.appUtils.showProgressDialog
@@ -19,6 +21,8 @@ class DriverLoginActivity : AppCompatActivity() {
 
     lateinit var mAuth:FirebaseAuth
     lateinit var progressDialog: ProgressDialog
+    lateinit var driverDatabaseRef : DatabaseReference
+    lateinit var onlineDriverID : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +31,7 @@ class DriverLoginActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         progressDialog = ProgressDialog(this)
+
 
         tv_no_account_driver.setOnClickListener {
             btn_driver_register.visibility = View.VISIBLE
@@ -78,9 +83,9 @@ class DriverLoginActivity : AppCompatActivity() {
                 mAuth.signInWithEmailAndPassword(driverEmail,driverPassword)
                     .addOnCompleteListener {
                         if (it.isSuccessful){
+                            startActivity(Intent(this,DriverMapActivity::class.java))
                             showToast(applicationContext,"Logged in Successfully")
                             hideProgressDialog(progressDialog)
-                            startActivity(Intent(this,DriverMapActivity::class.java))
                         } else{
                             showToast(applicationContext,"Oops! Logging in Failed, Try again later")
                             hideProgressDialog(progressDialog)
@@ -104,9 +109,16 @@ class DriverLoginActivity : AppCompatActivity() {
                 mAuth.createUserWithEmailAndPassword(driverEmail,driverPassword)
                     .addOnCompleteListener {
                         if (it.isSuccessful){
+
+                            onlineDriverID = mAuth.currentUser?.uid!!
+                            driverDatabaseRef = FirebaseDatabase.getInstance().reference.child("Users").child("Riders").child(onlineDriverID)
+
+                            driverDatabaseRef.setValue(true)
+
+                            startActivity(Intent(this,DriverMapActivity::class.java))
+
                             showToast(applicationContext,"Congrats! You are registered as a Rider")
                             hideProgressDialog(progressDialog)
-                            startActivity(Intent(this,DriverMapActivity::class.java))
                         } else{
                             showToast(applicationContext,"Oops! Registration Failed, Try again later")
                             hideProgressDialog(progressDialog)
