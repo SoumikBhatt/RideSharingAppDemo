@@ -18,12 +18,11 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.soumik.ridesharingapp.R
 import com.soumik.ridesharingapp.activities.MainActivity
 import com.soumik.ridesharingapp.appUtils.showToast
@@ -38,6 +37,8 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
     private lateinit var lastLocation: Location
     private lateinit var locationRequest: LocationRequest
     private lateinit var userReference: DatabaseReference
+    private lateinit var driverAvailableReference: DatabaseReference
+    private lateinit var driverReference: DatabaseReference
     private lateinit var driverLocationReference: DatabaseReference
     private lateinit var userPickupLocation:LatLng
 
@@ -47,6 +48,7 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
     private var radius:Double = 1.00
     private lateinit var currentUserID:String
     private lateinit var availableDriverID:String
+    private lateinit var driverMarker:Marker
 
     @SuppressLint("MissingPermission")
     override fun onConnected(p0: Bundle?) {
@@ -88,7 +90,8 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
         currentUserID = currentUser.uid
 
         userReference = FirebaseDatabase.getInstance().reference.child("Active Users")
-        driverLocationReference = FirebaseDatabase.getInstance().reference.child("Available Drivers")
+        driverAvailableReference = FirebaseDatabase.getInstance().reference.child("Available Drivers")
+        driverLocationReference = FirebaseDatabase.getInstance().reference.child("Drivers Working")
 
         btn_call_a_car.setOnClickListener {
 
@@ -119,7 +122,7 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
     private fun getNearbyDriver() {
 
-        var geoFire = GeoFire(driverLocationReference)
+        var geoFire = GeoFire(driverAvailableReference)
         var geoQuery = geoFire.queryAtLocation(GeoLocation(userPickupLocation.latitude,userPickupLocation.longitude),radius)
         geoQuery.removeAllListeners()
 
@@ -139,6 +142,17 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
                     driverFound=true
                     availableDriverID = key!!
+
+                    driverReference = FirebaseDatabase.getInstance().reference.child("Users").child("Drivers").child(availableDriverID)
+
+                    var driverMap:HashMap<String,Any> = HashMap()
+                    driverMap["customerID"] = currentUserID
+
+                    driverReference.updateChildren(driverMap)
+
+                    getDriverLocation()
+
+                    btn_call_a_car.text = "Finding Driver Location..."
                 }
             }
 
@@ -152,6 +166,52 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
             override fun onGeoQueryError(error: DatabaseError?) {
 
+            }
+        })
+    }
+
+    private fun getDriverLocation() {
+
+        driverLocationReference.child(availableDriverID).child("l").addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                if (p0.exists()){
+                    var driverLocationMap : List<Object> = p0.value as List<Object>
+
+                    var locationLat : Double = 0.0
+                    var locationLng : Double = 0.0
+                    btn_call_a_car.text = "Driver Found"
+
+                    if (driverLocationMap[0]!=null){
+                        locationLat = driverLocationMap[0].toString() as Double
+                    }
+                    if (driverLocationMap[1]!=null){
+                        locationLng = driverLocationMap[1].toString() as Double
+                    }
+
+                    var driverLatLng:LatLng = LatLng(locationLat,locationLng)
+
+                    if (driverMarker!=null){
+                        driverMarker.remove()
+                    }
+
+                    var userLocation:Location = Location("")
+                    userLocation.latitude = userPickupLocation.latitude
+                    userLocation.longitude = userPickupLocation.longitude
+
+                    var driverLocation:Location = Location("")
+                    driverLocation.latitude = driverLatLng.latitude
+                    driverLocation.longitude = driverLatLng.longitude
+
+                    var distance:Float = driverLocation.distanceTo(userLocation)
+
+                    btn_call_a_car.text = "Driver is $distance Away from you"
+
+                    driverMarker = mMap.addMarker(MarkerOptions().position(driverLatLng).title("Your Driver is here"))
+                }
             }
         })
     }

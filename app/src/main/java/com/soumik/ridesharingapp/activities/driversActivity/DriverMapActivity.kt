@@ -24,12 +24,12 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.soumik.ridesharingapp.R
 import com.soumik.ridesharingapp.activities.MainActivity
 import com.soumik.ridesharingapp.appUtils.showToast
 import kotlinx.android.synthetic.main.activity_driver_map.*
+import kotlinx.android.synthetic.main.activity_user_map.*
 
 class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
                             GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
@@ -43,6 +43,10 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
     private lateinit var mAuth: FirebaseAuth
     private lateinit var currentDriver: FirebaseUser
     private var driverStatus:Boolean = false
+    private lateinit var assignedCustomerReference: DatabaseReference
+    private lateinit var assignedCustomerPickUpReference: DatabaseReference
+    private lateinit var driverID:String
+    private var customerID:String = ""
 
     @SuppressLint("MissingPermission")
     override fun onConnected(p0: Bundle?) {
@@ -65,18 +69,30 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
     override fun onLocationChanged(p0: Location?) {
 
-        lastLocation = p0!!
+      if (applicationContext!=null){
 
-        var latLng:LatLng = LatLng(p0.latitude,p0.longitude)
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng!!))
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(18F))
+          lastLocation = p0!!
 
-        var driverID = FirebaseAuth.getInstance().currentUser?.uid
+          var latLng:LatLng = LatLng(p0.latitude,p0.longitude)
+          mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng!!))
+          mMap.animateCamera(CameraUpdateFactory.zoomTo(18F))
 
-        var availableDriverRef:DatabaseReference = FirebaseDatabase.getInstance().reference.child("Available Drivers")
+          var driverID = FirebaseAuth.getInstance().currentUser?.uid
 
-        var geoFire : GeoFire = GeoFire(availableDriverRef)
-        geoFire.setLocation(driverID, GeoLocation(p0.latitude,p0.longitude))
+          var availableDriverRef:DatabaseReference = FirebaseDatabase.getInstance().reference.child("Available Drivers")
+          var workingDriverRef:DatabaseReference = FirebaseDatabase.getInstance().reference.child("Drivers Working")
+
+          var geoFireAvailable : GeoFire = GeoFire(availableDriverRef)
+          var geoFireWorking : GeoFire = GeoFire(workingDriverRef)
+
+          if (customerID==""){
+              geoFireWorking.removeLocation(driverID)
+              geoFireAvailable.setLocation(driverID, GeoLocation(p0.latitude,p0.longitude))
+          } else {
+              geoFireAvailable.removeLocation(driverID)
+              geoFireWorking.setLocation(driverID, GeoLocation(p0.latitude,p0.longitude))
+          }
+      }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,6 +102,8 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
         mAuth = FirebaseAuth.getInstance()
 
         currentDriver = mAuth.currentUser!!
+
+        driverID = currentDriver.uid
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -98,6 +116,59 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
             logoutDriver()
         }
+
+        getCustomerRequest()
+    }
+
+    private fun getCustomerRequest() {
+
+        assignedCustomerReference = FirebaseDatabase.getInstance().reference.child("Users").child("Drivers").child(driverID).child("customerID")
+
+        assignedCustomerReference.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+
+                if (p0.exists()){
+                    customerID = p0.value.toString() //retrieving the customerID
+                    getPickupLocation()
+                }
+            }
+        })
+    }
+
+    private fun getPickupLocation() {
+
+        assignedCustomerPickUpReference = FirebaseDatabase.getInstance().reference.child("Customer Requests").child(customerID).child("l")
+
+        assignedCustomerPickUpReference.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+
+                if (p0.exists()){
+                    var customerLocationMap : List<Object> = p0.value as List<Object>
+
+                    var locationLat : Double = 0.0
+                    var locationLng : Double = 0.0
+
+                    if (customerLocationMap[0]!=null){
+                        locationLat = customerLocationMap[0].toString() as Double
+                    }
+                    if (customerLocationMap[1]!=null){
+                        locationLng = customerLocationMap[1].toString() as Double
+                    }
+
+                    var customerLatLng:LatLng = LatLng(locationLat,locationLng)
+
+                    mMap.addMarker(MarkerOptions().position(customerLatLng).title("Pickup Location"))
+                }
+            }
+        })
     }
 
     private fun logoutDriver() {

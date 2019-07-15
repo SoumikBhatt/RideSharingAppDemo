@@ -14,16 +14,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverLoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverLoginActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserLoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserLoginActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,31 +60,31 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="10" />
-          <entry key="java" value="1" />
-          <entry key="kt" value="34" />
-          <entry key="xml" value="43" />
+          <entry key="java" value="2" />
+          <entry key="kt" value="36" />
+          <entry key="xml" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="10" />
-          <entry key="JAVA" value="1" />
-          <entry key="Kotlin" value="34" />
-          <entry key="XML" value="43" />
+          <entry key="JAVA" value="2" />
+          <entry key="Kotlin" value="36" />
+          <entry key="XML" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="20" />
           <entry key="gradle" value="36" />
-          <entry key="kt" value="3946" />
+          <entry key="kt" value="5371" />
           <entry key="xml" value="1872" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="36" />
-          <entry key="Kotlin" value="3946" />
+          <entry key="Kotlin" value="5371" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="XML" value="1872" />
         </counts>
@@ -96,31 +93,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserLoginActivity.kt">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-186">
-              <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
+            <state relative-caret-position="444">
+              <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
               <folding>
-                <element signature="e#985#1252#2" />
-                <element signature="e#1294#1558#2" />
-                <element signature="e#1605#1788#2" />
-                <element signature="e#1832#2014#2" />
+                <element signature="e#62#1358#0" expanded="true" />
+                <element signature="e#2058#2371#0" />
+                <element signature="e#2421#2429#0" />
+                <element signature="e#2489#2497#0" />
+                <element signature="e#4495#4626#0" />
+                <element signature="e#4024#4553#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverLoginActivity.kt">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="87" column="62" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
+            <state relative-caret-position="425">
+              <caret line="212" column="118" lean-forward="true" selection-start-line="212" selection-start-column="35" selection-end-line="212" selection-end-column="118" />
               <folding>
-                <element signature="e#1117#1405#2" />
-                <element signature="e#1454#1739#2" />
-                <element signature="e#1781#1884#2" />
-                <element signature="e#1933#2131#2" />
+                <element signature="e#5606#6135#0" />
               </folding>
             </state>
           </provider>
@@ -2549,11 +2545,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/navigation_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/appUtils/Utills.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_driver_map.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_user_map.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverLoginActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserLoginActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt" />
       </list>
     </option>
   </component>
@@ -2736,9 +2732,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.17301829" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.17301829" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -2746,7 +2743,7 @@
       <window_info id="Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="1" visible="true" weight="0.47420964" />
+      <window_info anchor="bottom" id="Logcat" order="1" weight="0.47420964" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
@@ -2852,14 +2849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -2918,23 +2907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="123" column="37" selection-start-line="123" selection-start-column="37" selection-end-line="123" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="160" column="99" selection-start-line="160" selection-start-column="99" selection-end-line="160" selection-end-column="116" />
-          <folding>
-            <element signature="e#4024#4553#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_user_map.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -2943,10 +2915,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-327">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/location/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="331" column="24" selection-start-line="331" selection-start-column="24" selection-end-line="331" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverLoginActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="86" column="55" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
+          <folding>
+            <element signature="e#1117#1405#2" />
+            <element signature="e#1454#1739#2" />
+            <element signature="e#1781#1884#2" />
+            <element signature="e#1933#2131#2" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserLoginActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-186">
-          <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
+        <state relative-caret-position="646">
+          <caret line="73" column="39" lean-forward="true" selection-start-line="73" selection-start-column="39" selection-end-line="74" selection-end-column="36" />
           <folding>
             <element signature="e#985#1252#2" />
             <element signature="e#1294#1558#2" />
@@ -2956,15 +2956,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverLoginActivity.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="87" column="62" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
+        <state relative-caret-position="425">
+          <caret line="212" column="118" lean-forward="true" selection-start-line="212" selection-start-column="35" selection-end-line="212" selection-end-column="118" />
           <folding>
-            <element signature="e#1117#1405#2" />
-            <element signature="e#1454#1739#2" />
-            <element signature="e#1781#1884#2" />
-            <element signature="e#1933#2131#2" />
+            <element signature="e#5606#6135#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+          <folding>
+            <element signature="e#62#1358#0" expanded="true" />
+            <element signature="e#2058#2371#0" />
+            <element signature="e#2421#2429#0" />
+            <element signature="e#2489#2497#0" />
+            <element signature="e#4495#4626#0" />
+            <element signature="e#4024#4553#0" />
           </folding>
         </state>
       </provider>
