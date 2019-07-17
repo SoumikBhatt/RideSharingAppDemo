@@ -20,7 +20,9 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -47,6 +49,8 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
     private lateinit var assignedCustomerPickUpReference: DatabaseReference
     private lateinit var driverID:String
     private var customerID:String = ""
+    private lateinit var pickupMarker: Marker
+    private lateinit var assignedCustomerPickUpReferenceListener: ValueEventListener
 
     @SuppressLint("MissingPermission")
     override fun onConnected(p0: Bundle?) {
@@ -134,6 +138,18 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
                 if (p0.exists()){
                     customerID = p0.value.toString() //retrieving the customerID
                     getPickupLocation()
+                } else {
+
+                    customerID = ""
+
+                    if (pickupMarker!=null){
+                        pickupMarker.remove()
+                    }
+
+                    if(assignedCustomerPickUpReferenceListener!=null){
+
+                        assignedCustomerPickUpReference.removeEventListener(assignedCustomerPickUpReferenceListener)
+                    }
                 }
             }
         })
@@ -143,7 +159,7 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
         assignedCustomerPickUpReference = FirebaseDatabase.getInstance().reference.child("Customer Requests").child(customerID).child("l")
 
-        assignedCustomerPickUpReference.addValueEventListener(object : ValueEventListener{
+       assignedCustomerPickUpReferenceListener =  assignedCustomerPickUpReference.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
 
             }
@@ -165,7 +181,7 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
                     var customerLatLng:LatLng = LatLng(locationLat,locationLng)
 
-                    mMap.addMarker(MarkerOptions().position(customerLatLng).title("Pickup Location"))
+                    pickupMarker = mMap.addMarker(MarkerOptions().position(customerLatLng).title("Customer Pickup Location").icon(BitmapDescriptorFactory.fromResource(R.drawable.user)))
                 }
             }
         })

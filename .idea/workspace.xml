@@ -14,11 +14,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt" afterDir="false" />
@@ -45,23 +47,24 @@
     <session id="-1327364317">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.20" value="2" />
+          <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.25" value="1" />
-          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.29" value="2" />
           <entry key="project.open.time.32" value="2" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.49" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="10" />
           <entry key="java" value="2" />
-          <entry key="kt" value="36" />
+          <entry key="kt" value="38" />
           <entry key="xml" value="44" />
         </counts>
       </usages-collector>
@@ -69,7 +72,7 @@
         <counts>
           <entry key="Groovy" value="10" />
           <entry key="JAVA" value="2" />
-          <entry key="Kotlin" value="36" />
+          <entry key="Kotlin" value="38" />
           <entry key="XML" value="44" />
         </counts>
       </usages-collector>
@@ -77,14 +80,14 @@
         <counts>
           <entry key="dummy" value="20" />
           <entry key="gradle" value="36" />
-          <entry key="kt" value="5371" />
+          <entry key="kt" value="5986" />
           <entry key="xml" value="1872" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="36" />
-          <entry key="Kotlin" value="5371" />
+          <entry key="Kotlin" value="5986" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="XML" value="1872" />
         </counts>
@@ -96,15 +99,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+            <state relative-caret-position="527">
+              <caret line="183" column="182" selection-start-line="183" selection-start-column="182" selection-end-line="183" selection-end-column="182" />
               <folding>
                 <element signature="e#62#1358#0" expanded="true" />
-                <element signature="e#2058#2371#0" />
-                <element signature="e#2421#2429#0" />
-                <element signature="e#2489#2497#0" />
-                <element signature="e#4495#4626#0" />
-                <element signature="e#4024#4553#0" />
+                <element signature="e#6626#7155#0" />
               </folding>
             </state>
           </provider>
@@ -113,10 +112,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="212" column="118" lean-forward="true" selection-start-line="212" selection-start-column="35" selection-end-line="212" selection-end-column="118" />
+            <state relative-caret-position="255">
+              <caret line="140" column="29" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
               <folding>
-                <element signature="e#5606#6135#0" />
+                <element signature="e#8064#8593#0" />
               </folding>
             </state>
           </provider>
@@ -2578,36 +2577,7 @@
             <path>
               <item name="RideSharingApp" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="RideSharingApp" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="ridesharingapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RideSharingApp" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="ridesharingapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RideSharingApp" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="ridesharingapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="driversActivity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RideSharingApp" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="ridesharingapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="usersActivity" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
               <item name="RideSharingApp" type="1abcf292:AndroidViewProjectNode" />
@@ -2623,7 +2593,7 @@
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="UserL&#9;FILE&#9;file://G:/Android code/Practice/RideSharingApp/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserLoginActivity.kt&#10;User&#9;FILE&#9;file://G:/Android code/Practice/RideSharingApp/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserLoginActivity.kt&#10;mainA&#9;FILE&#9;file://G:/Android code/Practice/RideSharingApp/app/src/main/java/com/soumik/ridesharingapp/MainActivity.kt&#10;acd&#9;FILE&#9;file://G:/Android code/Practice/RideSharingApp/app/src/main/res/layout/activity_driver_login.xml&#10;D&#9;FILE&#9;file://G:/Android code/Practice/RideSharingApp/app/src/main/java/com/soumik/ridesharingapp/DriverLoginActivity.kt&#10;Main&#9;FILE&#9;file://G:/Android code/Practice/RideSharingApp/app/src/main/java/com/soumik/ridesharingapp/MainActivity.kt&#10;spla&#9;FILE&#9;file://G:/Android code/Practice/RideSharingApp/app/src/main/res/layout/activity_splash.xml&#10;ac&#9;FILE&#9;file://G:/Android code/Practice/RideSharingApp/app/src/main/res/layout/activity_splash.xml" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="device.picker.selection" value="emulator-5554" />
+    <property name="device.picker.selection" value="127.0.0.1:6555" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
   </component>
   <component name="RecentsManager">
@@ -2747,8 +2717,8 @@
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="5" weight="0.32231405" />
-      <window_info anchor="bottom" id="Android Profiler" order="6" />
+      <window_info anchor="bottom" id="Build" order="5" weight="0.32066116" />
+      <window_info anchor="bottom" id="Android Profiler" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="7" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.5291181" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.3294509" />
@@ -2760,29 +2730,6 @@
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Assistant" order="6" weight="0.3292683" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.14862806" />
-      <window_info id="Structure" order="1" side_tool="true" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Build Variants" order="6" side_tool="true" />
-      <window_info id="Captures" order="7" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" order="1" />
-      <window_info anchor="bottom" id="Logcat" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="5" weight="0.3289256" />
-      <window_info anchor="bottom" id="Android Profiler" order="6" show_stripe_button="false" />
-      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Gradle" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info active="true" anchor="right" id="Preview" order="4" visible="true" weight="0.3292683" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -2804,28 +2751,28 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="24" column="14" selection-start-line="22" selection-start-column="2" selection-end-line="54" selection-end-column="19" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="49" column="37" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="37" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_user_login.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="59" column="38" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="38" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/app/Instrumentation.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -2842,12 +2789,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_driver_login.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="104" column="45" selection-start-line="104" selection-start-column="29" selection-end-line="104" selection-end-column="45" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -2878,12 +2825,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/navigation_item.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -2900,20 +2847,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_driver_map.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="523">
           <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_user_map.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -2934,12 +2881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="86" column="55" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
-          <folding>
-            <element signature="e#1117#1405#2" />
-            <element signature="e#1454#1739#2" />
-            <element signature="e#1781#1884#2" />
-            <element signature="e#1933#2131#2" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2947,36 +2888,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="73" column="39" lean-forward="true" selection-start-line="73" selection-start-column="39" selection-end-line="74" selection-end-column="36" />
-          <folding>
-            <element signature="e#985#1252#2" />
-            <element signature="e#1294#1558#2" />
-            <element signature="e#1605#1788#2" />
-            <element signature="e#1832#2014#2" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="212" column="118" lean-forward="true" selection-start-line="212" selection-start-column="35" selection-end-line="212" selection-end-column="118" />
+        <state relative-caret-position="255">
+          <caret line="140" column="29" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
           <folding>
-            <element signature="e#5606#6135#0" />
+            <element signature="e#8064#8593#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+        <state relative-caret-position="527">
+          <caret line="183" column="182" selection-start-line="183" selection-start-column="182" selection-end-line="183" selection-end-column="182" />
           <folding>
             <element signature="e#62#1358#0" expanded="true" />
-            <element signature="e#2058#2371#0" />
-            <element signature="e#2421#2429#0" />
-            <element signature="e#2489#2497#0" />
-            <element signature="e#4495#4626#0" />
-            <element signature="e#4024#4553#0" />
+            <element signature="e#6626#7155#0" />
           </folding>
         </state>
       </provider>

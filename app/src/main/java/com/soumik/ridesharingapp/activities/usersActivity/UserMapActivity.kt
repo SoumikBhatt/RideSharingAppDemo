@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.firebase.geofire.GeoFire
 import com.firebase.geofire.GeoLocation
+import com.firebase.geofire.GeoQuery
 import com.firebase.geofire.GeoQueryEventListener
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
@@ -17,9 +18,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -45,10 +44,14 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
     private lateinit var mAuth: FirebaseAuth
     private lateinit var currentUser: FirebaseUser
     private var driverFound:Boolean = false
+    private var requestType:Boolean = false
     private var radius:Double = 1.00
     private lateinit var currentUserID:String
     private lateinit var availableDriverID:String
     private lateinit var driverMarker:Marker
+    private lateinit var pickupMarker: Marker
+    private lateinit var driverLocationRefListener:ValueEventListener
+    private lateinit var geoQuery: GeoQuery
 
     @SuppressLint("MissingPermission")
     override fun onConnected(p0: Bundle?) {
@@ -95,16 +98,52 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
         btn_call_a_car.setOnClickListener {
 
-            var geoFire = GeoFire(userReference)
-            geoFire.setLocation(currentUserID, GeoLocation(lastLocation.latitude,lastLocation.longitude))
+            if (requestType){
 
-            userPickupLocation = LatLng(lastLocation.latitude,lastLocation.longitude)
+                requestType = false
 
-            mMap.addMarker(MarkerOptions().position(userPickupLocation).title("Pick your customer from here"))
+                geoQuery.removeAllListeners()
+                driverLocationReference.removeEventListener(driverLocationRefListener)
 
-            btn_call_a_car.text = "Finding your ride...."
+                if (driverFound!=null){
+                    driverReference = FirebaseDatabase.getInstance().reference.child("Users").child("Drivers").child(availableDriverID).child("customerID")
 
-            getNearbyDriver()
+                    driverReference.removeValue()
+
+                    availableDriverID = null.toString()
+                }
+
+                driverFound = false
+                radius = 1.00
+
+                var geoFire = GeoFire(userReference)
+                geoFire.removeLocation(currentUserID)
+
+                if (pickupMarker!=null){
+                    pickupMarker.remove()
+                }
+
+                if (driverMarker!=null){
+                    driverMarker.remove()
+                }
+
+                btn_call_a_car.text = "Call a Car"
+
+            } else {
+
+                requestType = true
+
+                var geoFire = GeoFire(userReference)
+                geoFire.setLocation(currentUserID, GeoLocation(lastLocation.latitude,lastLocation.longitude))
+
+                userPickupLocation = LatLng(lastLocation.latitude,lastLocation.longitude)
+
+              pickupMarker =   mMap.addMarker(MarkerOptions().position(userPickupLocation).title("My Location").icon(BitmapDescriptorFactory.fromResource(R.drawable.user)))
+
+                btn_call_a_car.text = "Finding your ride...."
+
+                getNearbyDriver()
+            }
         }
 
         fbtn_logout_user.setOnClickListener {
@@ -129,7 +168,7 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
         geoQuery.addGeoQueryEventListener(object : GeoQueryEventListener{
             override fun onGeoQueryReady() {
 
-                if (!driverFound){
+                if (!driverFound && requestType){
 
                     radius++
                     getNearbyDriver()
@@ -172,13 +211,13 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
     private fun getDriverLocation() {
 
-        driverLocationReference.child(availableDriverID).child("l").addValueEventListener(object : ValueEventListener{
+       driverLocationRefListener =  driverLocationReference.child(availableDriverID).child("l").addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
 
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                if (p0.exists()){
+                if (p0.exists() && requestType){
                     var driverLocationMap : List<Object> = p0.value as List<Object>
 
                     var locationLat : Double = 0.0
@@ -208,9 +247,13 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
                     var distance:Float = driverLocation.distanceTo(userLocation)
 
-                    btn_call_a_car.text = "Driver is $distance Away from you"
+                    if (distance<90){
+                        btn_call_a_car.text = "Your Rider has arrived"
+                    } else {
+                        btn_call_a_car.text = "Driver is $distance Away from you"
+                    }
 
-                    driverMarker = mMap.addMarker(MarkerOptions().position(driverLatLng).title("Your Driver is here"))
+                    driverMarker = mMap.addMarker(MarkerOptions().position(driverLatLng).title("Your Driver is here").icon(BitmapDescriptorFactory.fromResource(R.drawable.car)))
                 }
             }
         })
