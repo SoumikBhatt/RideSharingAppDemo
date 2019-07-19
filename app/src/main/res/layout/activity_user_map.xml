@@ -38,5 +38,15 @@
             android:layout_margin="25dp"
     />
 
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fbtn_settings_user"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="25dp"
+            android:src="@drawable/ic_settings"
+    />
+
 </RelativeLayout>
 

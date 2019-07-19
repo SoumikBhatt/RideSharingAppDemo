@@ -29,6 +29,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.soumik.ridesharingapp.R
 import com.soumik.ridesharingapp.activities.MainActivity
+import com.soumik.ridesharingapp.activities.SettingsActivity
 import com.soumik.ridesharingapp.appUtils.showToast
 import kotlinx.android.synthetic.main.activity_driver_map.*
 import kotlinx.android.synthetic.main.activity_user_map.*
@@ -50,7 +51,7 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
     private lateinit var driverID:String
     private var customerID:String = ""
     private lateinit var pickupMarker: Marker
-    private lateinit var assignedCustomerPickUpReferenceListener: ValueEventListener
+    private var assignedCustomerPickUpReferenceListener: ValueEventListener? = null
 
     @SuppressLint("MissingPermission")
     override fun onConnected(p0: Bundle?) {
@@ -81,7 +82,7 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
           mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng!!))
           mMap.animateCamera(CameraUpdateFactory.zoomTo(18F))
 
-          var driverID = FirebaseAuth.getInstance().currentUser?.uid
+          var driverID = currentDriver?.uid
 
           var availableDriverRef:DatabaseReference = FirebaseDatabase.getInstance().reference.child("Available Drivers")
           var workingDriverRef:DatabaseReference = FirebaseDatabase.getInstance().reference.child("Drivers Working")
@@ -89,13 +90,25 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
           var geoFireAvailable : GeoFire = GeoFire(availableDriverRef)
           var geoFireWorking : GeoFire = GeoFire(workingDriverRef)
 
-          if (customerID==""){
-              geoFireWorking.removeLocation(driverID)
-              geoFireAvailable.setLocation(driverID, GeoLocation(p0.latitude,p0.longitude))
-          } else {
-              geoFireAvailable.removeLocation(driverID)
-              geoFireWorking.setLocation(driverID, GeoLocation(p0.latitude,p0.longitude))
+          when (customerID) {
+              "" -> {
+                  geoFireWorking.removeLocation(driverID)
+                  geoFireAvailable.setLocation(driverID, GeoLocation(p0.latitude, p0.longitude))
+              }
+
+              else -> {
+                  geoFireAvailable.removeLocation(driverID)
+                  geoFireWorking.setLocation(driverID, GeoLocation(p0.latitude, p0.longitude))
+              }
           }
+
+//          if (customerID==""){
+//              geoFireWorking.removeLocation(driverID)
+//              geoFireAvailable.setLocation(driverID, GeoLocation(p0.latitude,p0.longitude))
+//          } else {
+//              geoFireAvailable.removeLocation(driverID)
+//              geoFireWorking.setLocation(driverID, GeoLocation(p0.latitude,p0.longitude))
+//          }
       }
     }
 
@@ -119,6 +132,11 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
             mAuth.signOut()
 
             logoutDriver()
+        }
+
+        fbtn_settings_driver.setOnClickListener {
+
+            startActivity(Intent(this,SettingsActivity::class.java).putExtra(SettingsActivity.TYPE,"Drivers"))
         }
 
         getCustomerRequest()
@@ -148,7 +166,7 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
                     if(assignedCustomerPickUpReferenceListener!=null){
 
-                        assignedCustomerPickUpReference.removeEventListener(assignedCustomerPickUpReferenceListener)
+                        assignedCustomerPickUpReference.removeEventListener(assignedCustomerPickUpReferenceListener!!)
                     }
                 }
             }

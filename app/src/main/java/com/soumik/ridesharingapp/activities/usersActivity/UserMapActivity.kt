@@ -24,7 +24,9 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.soumik.ridesharingapp.R
 import com.soumik.ridesharingapp.activities.MainActivity
+import com.soumik.ridesharingapp.activities.SettingsActivity
 import com.soumik.ridesharingapp.appUtils.showToast
+import kotlinx.android.synthetic.main.activity_driver_map.*
 import kotlinx.android.synthetic.main.activity_user_map.*
 
 class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
@@ -116,8 +118,10 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
                 driverFound = false
                 radius = 1.00
 
+                var customerID = FirebaseAuth.getInstance().currentUser?.uid
+
                 var geoFire = GeoFire(userReference)
-                geoFire.removeLocation(currentUserID)
+                geoFire.removeLocation(customerID)
 
                 if (pickupMarker!=null){
                     pickupMarker.remove()
@@ -131,10 +135,12 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
             } else {
 
+                var customerID = FirebaseAuth.getInstance().currentUser?.uid
+
                 requestType = true
 
                 var geoFire = GeoFire(userReference)
-                geoFire.setLocation(currentUserID, GeoLocation(lastLocation.latitude,lastLocation.longitude))
+                geoFire.setLocation(customerID, GeoLocation(lastLocation.latitude,lastLocation.longitude))
 
                 userPickupLocation = LatLng(lastLocation.latitude,lastLocation.longitude)
 
@@ -153,6 +159,11 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
         }
 
+        fbtn_settings_user.setOnClickListener {
+
+            startActivity(Intent(this, SettingsActivity::class.java).putExtra(SettingsActivity.TYPE,"Customers"))
+        }
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -168,16 +179,16 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
         geoQuery.addGeoQueryEventListener(object : GeoQueryEventListener{
             override fun onGeoQueryReady() {
 
-                if (!driverFound && requestType){
+                if (!driverFound){
 
-                    radius++
+                    radius += 1
                     getNearbyDriver()
                 }
             }
 
             override fun onKeyEntered(key: String?, location: GeoLocation?) {
 
-                if (!driverFound){
+                if (!driverFound && requestType){
 
                     driverFound=true
                     availableDriverID = key!!

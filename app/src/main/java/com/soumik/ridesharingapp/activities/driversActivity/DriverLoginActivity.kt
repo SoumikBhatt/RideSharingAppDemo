@@ -111,7 +111,7 @@ class DriverLoginActivity : AppCompatActivity() {
                         if (it.isSuccessful){
 
                             onlineDriverID = mAuth.currentUser?.uid!!
-                            driverDatabaseRef = FirebaseDatabase.getInstance().reference.child("Users").child("Riders").child(onlineDriverID)
+                            driverDatabaseRef = FirebaseDatabase.getInstance().reference.child("Users").child("Drivers").child(onlineDriverID)
 
                             driverDatabaseRef.setValue(true)
 
