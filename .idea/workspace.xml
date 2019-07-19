@@ -11,17 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb4cdc27-7c7d-499d-975a-fdc14ee37b6c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_hdodenhof_circleimageview_3_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/SettingsActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_settings.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
@@ -30,11 +22,7 @@
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverLoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverLoginActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_driver_map.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_driver_map.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_user_map.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_user_map.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/SettingsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/SettingsActivity.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,50 +66,50 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
-          <entry key="gradle" value="11" />
+          <entry key="gradle" value="12" />
           <entry key="java" value="2" />
-          <entry key="kt" value="49" />
+          <entry key="kt" value="50" />
           <entry key="png" value="1" />
-          <entry key="xml" value="48" />
+          <entry key="xml" value="49" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="Groovy" value="11" />
+          <entry key="Groovy" value="12" />
           <entry key="Image" value="1" />
           <entry key="JAVA" value="2" />
-          <entry key="Kotlin" value="49" />
-          <entry key="XML" value="48" />
+          <entry key="Kotlin" value="50" />
+          <entry key="XML" value="49" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="20" />
-          <entry key="gradle" value="37" />
-          <entry key="kt" value="6370" />
-          <entry key="xml" value="2005" />
+          <entry key="gradle" value="47" />
+          <entry key="kt" value="7898" />
+          <entry key="xml" value="2024" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Groovy" value="37" />
-          <entry key="Kotlin" value="6370" />
+          <entry key="Groovy" value="47" />
+          <entry key="Kotlin" value="7898" />
           <entry key="PLAIN_TEXT" value="20" />
-          <entry key="XML" value="2005" />
+          <entry key="XML" value="2024" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/SettingsActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+            <state relative-caret-position="-2349">
+              <caret line="90" column="28" selection-start-line="90" selection-start-column="28" selection-end-line="90" selection-end-column="28" />
               <folding>
-                <element signature="e#46#371#0" expanded="true" />
+                <element signature="e#46#546#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,24 +119,8 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="80" column="36" selection-start-line="80" selection-start-column="36" selection-end-line="80" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2006">
-              <caret line="170" column="5" lean-forward="true" selection-start-line="170" selection-start-column="5" selection-end-line="170" selection-end-column="5" />
-              <folding>
-                <element signature="e#2524#2837#0" />
-                <element signature="e#2887#2895#0" />
-                <element signature="e#2955#2963#0" />
-                <element signature="e#3854#5570#2" />
-                <element signature="e#5616#5682#2" />
-              </folding>
+            <state relative-caret-position="185">
+              <caret line="48" column="52" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -2571,18 +2543,18 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/Activities/driversActivity/DriverLoginActivity.kt" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/navigation_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/appUtils/Utills.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserLoginActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverLoginActivity.kt" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_driver_map.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_user_map.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/driversActivity/DriverMapActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/SettingsActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/SettingsActivity.kt" />
       </list>
     </option>
   </component>
@@ -2632,20 +2604,11 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="ridesharingapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="driversActivity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RideSharingApp" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="ridesharingapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
               <item name="usersActivity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RideSharingApp" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
           <select />
@@ -2769,7 +2732,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.17301829" />
@@ -2906,14 +2868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-327">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/location/Location.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -2933,20 +2887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1411">
           <caret line="98" column="16" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserLoginActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="98" column="28" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -2973,34 +2913,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="80" column="36" selection-start-line="80" selection-start-column="36" selection-end-line="80" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/SettingsActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
-          <folding>
-            <element signature="e#46#371#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserMapActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2006">
-          <caret line="170" column="5" lean-forward="true" selection-start-line="170" selection-start-column="5" selection-end-line="170" selection-end-column="5" />
+        <state relative-caret-position="1258">
+          <caret line="170" column="5" selection-start-line="170" selection-start-column="5" selection-end-line="170" selection-end-column="5" />
           <folding>
             <element signature="e#2524#2837#0" />
             <element signature="e#2887#2895#0" />
             <element signature="e#2955#2963#0" />
             <element signature="e#3854#5570#2" />
             <element signature="e#5616#5682#2" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="33" column="56" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="48" column="52" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/usersActivity/UserLoginActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-989">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="48" column="63" selection-start-line="48" selection-start-column="63" selection-end-line="48" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soumik/ridesharingapp/activities/SettingsActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2349">
+          <caret line="90" column="28" selection-start-line="90" selection-start-column="28" selection-end-line="90" selection-end-column="28" />
+          <folding>
+            <element signature="e#46#546#0" expanded="true" />
           </folding>
         </state>
       </provider>
