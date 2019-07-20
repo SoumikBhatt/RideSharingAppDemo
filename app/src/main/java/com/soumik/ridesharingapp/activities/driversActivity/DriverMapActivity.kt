@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
+import android.view.View
 import com.firebase.geofire.GeoFire
 import com.firebase.geofire.GeoLocation
 import com.google.android.gms.common.ConnectionResult
@@ -31,6 +32,7 @@ import com.soumik.ridesharingapp.R
 import com.soumik.ridesharingapp.activities.MainActivity
 import com.soumik.ridesharingapp.activities.SettingsActivity
 import com.soumik.ridesharingapp.appUtils.showToast
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_driver_map.*
 import kotlinx.android.synthetic.main.activity_user_map.*
 
@@ -156,6 +158,8 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
                 if (p0.exists()){
                     customerID = p0.value.toString() //retrieving the customerID
                     getPickupLocation()
+                    layout_relative2.visibility = View.VISIBLE
+                    getAssignedCustomerInformation()
                 } else {
 
                     customerID = ""
@@ -168,6 +172,8 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
 
                         assignedCustomerPickUpReference.removeEventListener(assignedCustomerPickUpReferenceListener!!)
                     }
+
+                    layout_relative2.visibility = View.GONE
                 }
             }
         })
@@ -268,5 +274,34 @@ class DriverMapActivity : AppCompatActivity(), OnMapReadyCallback,
         var geoFire = GeoFire(availableDriverRef)
         geoFire.removeLocation(driverID)
         LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient,this)
+    }
+
+    private fun getAssignedCustomerInformation(){
+
+        var reference:DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users").child("Customers")
+            .child(customerID)
+
+        reference.addValueEventListener(object :ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                if(p0.exists()&&p0.childrenCount>0){
+
+                    var name = p0.child("name").value.toString()
+                    var phone = p0.child("phone").value.toString()
+
+                    tv_name_user.text = name
+                    tv_phone_user.text = phone
+
+
+                    if (p0.hasChild("image")) {
+                        var image = p0.child("image").value.toString()
+                        Picasso.get().load(image).into(iv_user_image)
+                    }
+                }
+            }
+        })
     }
 }

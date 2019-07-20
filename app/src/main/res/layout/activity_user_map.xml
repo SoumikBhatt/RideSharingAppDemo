@@ -15,6 +15,81 @@
             android:id="@+id/map"
             android:layout_above="@id/btn_call_a_car"
             android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+    <RelativeLayout
+            android:id="@+id/layout_relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/btn_call_a_car"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:background="@color/colorPrimary">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_driver_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/profile"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="15dp"
+                android:padding="3dp"
+                android:layout_marginLeft="15dp"/>
+
+        <TextView
+                android:id="@+id/tv_name_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/iv_driver_image"
+                android:text="Driver Name"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"/>
+
+        <TextView
+                android:id="@+id/tv_phone_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/iv_driver_image"
+                android:text="Driver Phone Number"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/tv_name_driver"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"/>
+
+        <TextView
+                android:id="@+id/tv_car_name_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/iv_driver_image"
+                android:text="Driver Car Name"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/tv_phone_driver"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"/>
+
+        <ImageView
+                android:id="@+id/iv_call_driver"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/phone"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+        />
+
+    </RelativeLayout>
+
     <Button
             android:text="Call a Car"
             android:layout_width="match_parent"
@@ -33,7 +108,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/ic_tab_logout"
-            android:layout_above="@id/btn_call_a_car"
+            android:layout_above="@id/layout_relative"
             android:layout_alignParentRight="true"
             android:layout_margin="25dp"
     />

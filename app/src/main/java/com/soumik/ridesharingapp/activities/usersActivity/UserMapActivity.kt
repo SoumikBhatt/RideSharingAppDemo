@@ -5,6 +5,7 @@ import android.content.Intent
 import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.firebase.geofire.GeoFire
 import com.firebase.geofire.GeoLocation
 import com.firebase.geofire.GeoQuery
@@ -26,7 +27,9 @@ import com.soumik.ridesharingapp.R
 import com.soumik.ridesharingapp.activities.MainActivity
 import com.soumik.ridesharingapp.activities.SettingsActivity
 import com.soumik.ridesharingapp.appUtils.showToast
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_driver_map.*
+import kotlinx.android.synthetic.main.activity_settings.*
 import kotlinx.android.synthetic.main.activity_user_map.*
 
 class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
@@ -132,12 +135,12 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
                 }
 
                 btn_call_a_car.text = "Call a Car"
+                layout_relative.visibility = View.GONE
 
             } else {
+                requestType = true
 
                 var customerID = FirebaseAuth.getInstance().currentUser?.uid
-
-                requestType = true
 
                 var geoFire = GeoFire(userReference)
                 geoFire.setLocation(customerID, GeoLocation(lastLocation.latitude,lastLocation.longitude))
@@ -235,6 +238,9 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
                     var locationLng : Double = 0.0
                     btn_call_a_car.text = "Driver Found"
 
+                    layout_relative.visibility = View.VISIBLE
+                    getAssignedDriverInformation()
+
                     if (driverLocationMap[0]!=null){
                         locationLat = driverLocationMap[0].toString() as Double
                     }
@@ -304,6 +310,37 @@ class UserMapActivity : AppCompatActivity(), OnMapReadyCallback,
             .build()
 
         googleApiClient.connect()
+    }
+
+    private fun getAssignedDriverInformation(){
+
+        var reference:DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users").child("Drivers")
+            .child(availableDriverID)
+
+        reference.addValueEventListener(object :ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                if(p0.exists()&&p0.childrenCount>0){
+
+                    var name = p0.child("name").value.toString()
+                    var phone = p0.child("phone").value.toString()
+                    var car = p0.child("car").value.toString()
+
+                    tv_name_driver.text = name
+                    tv_phone_driver.text = phone
+                    tv_car_name_driver.text = car
+
+
+                    if (p0.hasChild("image")) {
+                        var image = p0.child("image").value.toString()
+                        Picasso.get().load(image).into(iv_driver_image)
+                    }
+                }
+            }
+        })
     }
 
     override fun onStop() {

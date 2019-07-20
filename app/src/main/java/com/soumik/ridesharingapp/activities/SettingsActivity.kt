@@ -9,6 +9,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import com.google.android.gms.tasks.Continuation
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
@@ -24,6 +26,7 @@ import com.soumik.ridesharingapp.appUtils.showToast
 import com.squareup.picasso.Picasso
 import com.theartofdev.edmodo.cropper.CropImage
 import kotlinx.android.synthetic.main.activity_settings.*
+import org.w3c.dom.Text
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -93,37 +96,32 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun validateAndSaveOnlyInformation() {
 
-        when {
-            TextUtils.isEmpty(et_set_name.text.toString()) -> showToast(applicationContext, "Please Provide Your Name")
-            TextUtils.isEmpty(et_set_phone.text.toString()) -> showToast(
-                applicationContext,
-                "Please Provide Your Phone Number"
-            )
-            TextUtils.isEmpty(et_set_car.text.toString()) && getType == "Drivers" -> showToast(
-                applicationContext,
-                "Please Provide Your Car Name"
-            )
+        if (TextUtils.isEmpty(et_set_name.text.toString())){
+            showToast(applicationContext, "Please Provide Your Name")
+        } else if (TextUtils.isEmpty(et_set_phone.text.toString())){
+            showToast(applicationContext,"Please Provide Your Phone Number")
+        } else if (TextUtils.isEmpty(et_set_car.text.toString()) && getType=="Drivers"){
+            showToast(applicationContext,"Please Provide Your Car Name")
+        } else {
 
-            else -> {
-                var userMap: HashMap<String, Any> = HashMap()
+            var userMap: HashMap<String, Any> = HashMap()
 
-                userMap["uid"] = mAuth.currentUser?.uid!!
-                userMap["name"] = et_set_name.text.toString()
-                userMap["phone"] = et_set_phone.text.toString()
+            userMap["uid"] = mAuth.currentUser?.uid!!
+            userMap["name"] = et_set_name.text.toString()
+            userMap["phone"] = et_set_phone.text.toString()
 
-                if (getType == "Drivers") {
-                    userMap["car"] = et_set_car.text.toString()
-                }
+            if (getType == "Drivers") {
+                userMap["car"] = et_set_car.text.toString()
+            }
 
-                databaseReference.child(mAuth.currentUser?.uid!!).updateChildren(userMap)
+            databaseReference.child(mAuth.currentUser?.uid!!).updateChildren(userMap)
 
-                if (getType == "Drivers") {
-                    startActivity(Intent(this, DriverMapActivity::class.java))
-                    finish()
-                } else {
-                    startActivity(Intent(this, UserMapActivity::class.java))
-                    finish()
-                }
+            if (getType == "Drivers") {
+                startActivity(Intent(this, DriverMapActivity::class.java))
+                finish()
+            } else {
+                startActivity(Intent(this, UserMapActivity::class.java))
+                finish()
             }
         }
     }
@@ -156,25 +154,15 @@ class SettingsActivity : AppCompatActivity() {
 
         when {
             TextUtils.isEmpty(et_set_name.text.toString()) -> showToast(applicationContext, "Please Provide Your Name")
-            TextUtils.isEmpty(et_set_phone.text.toString()) -> showToast(
-                applicationContext,
-                "Please Provide Your Phone Number"
-            )
-            TextUtils.isEmpty(et_set_car.text.toString()) && getType == "Drivers" -> showToast(
-                applicationContext,
-                "Please Provide Your Car Name"
-            )
+            TextUtils.isEmpty(et_set_phone.text.toString()) -> showToast(applicationContext,"Please Provide Your Phone Number")
+            TextUtils.isEmpty(et_set_car.text.toString()) && getType == "Drivers" -> showToast(applicationContext,"Please Provide Your Car Name")
             checker == "clicked" -> updateProfilePicture()
         }
     }
 
     private fun updateProfilePicture() {
 
-        showProgressDialog(
-            progressDialog,
-            "Updating Information",
-            "Please wait,while we are updating your information's"
-        )
+        showProgressDialog(progressDialog, "Updating Information", "Please wait,while we are updating your information's")
 
         if (imageURI != null) {
 
@@ -182,14 +170,18 @@ class SettingsActivity : AppCompatActivity() {
 
             uploadTask = fileRef.putFile(imageURI!!)
 
-            uploadTask.continueWithTask {
-                if (!it.isSuccessful) {
+
+            uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> {
+
+                if (!it.isSuccessful){
                     throw it.exception!!
                 }
-                return@continueWithTask fileRef.downloadUrl
-            }.addOnCompleteListener {
-                if (it.isSuccessful) {
-                    var downloadURI: Uri = it.result
+
+                return@Continuation fileRef.downloadUrl
+            }).addOnCompleteListener {
+                if (it.isSuccessful){
+
+                    var downloadURI : Uri = it?.result!!
                     imageURL = downloadURI.toString()
 
                     var userMap: HashMap<String, Any> = HashMap()
